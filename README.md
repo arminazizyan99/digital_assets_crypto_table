@@ -1,0 +1,1 @@
+# digital_assets_crypto_table
