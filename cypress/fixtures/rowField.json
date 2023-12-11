@@ -1,0 +1,33 @@
+{
+    "rowField" :[
+        "#",
+       "Name",
+       "Price",
+       "1H",
+       "24H",
+       "7D",
+       "Market Cap",
+       "24H Volume",
+       "7 Day Chart"
+    ],
+
+    "hoverField" :[
+       "Real-time cost for a single coin or token of a cryptocurrency in the market. It is determined by demand, supply, investor sentiment and other factors.",
+       "Percentage change in market price over the last 1 hour.",
+       "Percentage change in market price over the last 24 hours.",
+       "Percentage change in market price over the last 7 days.",
+       "Total value of a cryptocurrency in the market. It is calculated by multiplying price with circulating supply.",
+       "Total value of a cryptocurrency traded (bought or sold) in the last 24 hours.",
+       "Visual representation of the price trend over the last 7 days."
+    ],
+
+    "RegexpPercent":[
+        
+        "(^\\-|^\\+)?(\\d+)\\.(\\d+)(\\%)"
+
+    ],
+    "RegexpPrice":[
+        
+        "^\\$(\\d+)\\.(\\d+)([A-Z]?)$"
+    ]
+}
