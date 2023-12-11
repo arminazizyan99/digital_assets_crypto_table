@@ -1,4 +1,4 @@
-// @ts-ignore
+
 import criptoPricesPage from "../../pages/criptoPricesPage"
 import {enValues} from "../../src/models"
 import {StatusCodes} from "../../src/models"
