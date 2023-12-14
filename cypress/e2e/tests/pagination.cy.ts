@@ -34,7 +34,6 @@ describe("Pagination", ()=>{
     it("should test pagination visibility and page count after search", () =>{
         cy.intercept("GET", criptoPricesPage.searchURL).as("searchPage")
         criptoPricesPage.clickAndTypeSearch(enValues.inputSearch)
-        //try without wait
         cy.wait(1000)
           .wait("@searchPage").its("response") 
              
