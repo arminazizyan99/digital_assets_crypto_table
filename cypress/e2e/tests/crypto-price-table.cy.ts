@@ -50,7 +50,6 @@ describe('Cryptocurrency price table', () => {
   it("should test table visibility after search", () =>{
     cy.intercept("GET", criptoPricesPage.searchURL).as("searchPage")
     criptoPricesPage.clickAndTypeSearch(enValues.inputSearch)
-    //try without wait
     cy.wait(1000)
       .wait("@searchPage").its("response") 
          .should(response => expect(response.statusCode).to.eq(StatusCodes.Success))
@@ -82,6 +81,7 @@ describe('Cryptocurrency price table', () => {
     .should(response => expect(response.statusCode).to.eq(StatusCodes.Success))   
     .should(response => expect(response.body.assets.length).to.eq(enValues.assetLenghth))
     criptoPricesPage.findLengthofPages(enValues.pageNum,enValues.pageNum)
+    
     cy.get(criptoPricesPage.pageNumRightarrow).should(assertChainers.beDesabled).and(assertChainers.beVisible)
     cy.get(criptoPricesPage.pageNumLefttarrow).should(assertChainers.beDesabled).and(assertChainers.beVisible)
     rowPage.colorText(rowPage.rowCellHour)
