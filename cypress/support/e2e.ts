@@ -21,6 +21,8 @@ import homePage from "../pages/criptoPricesPage"
 // require('./commands')
 
 beforeEach(()=>{
+     const viewValue = Cypress.env("viewPort")
+     cy.viewport(viewValue)
 
     cy.intercept(homePage.pageUrl).as('pageload')
     const app = window.top;
