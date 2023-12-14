@@ -15,7 +15,7 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import homePage from "../pages/criptoPricesPage"
+import homePage from "../pages/cryptoPricesPage"
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

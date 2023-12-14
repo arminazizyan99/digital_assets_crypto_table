@@ -24,14 +24,16 @@ class rowPage{
     tableSortArrowDesc = ".Table_tableSortArrow__5lyaU"
     tableSortArrowAsc = ".Table_tableSortArrowAsc__dybKH"
     tableSortArrow = ".Table_tableSortArrow__5lyaU"
-    urlSortDesc7D = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=percentage_7d&direction=desc&query=&category=ft&categoryId="
-    urlSortAsc7D = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=percentage_7d&direction=asc&query=&category=ft&categoryId="
-    urlSortDescPrice = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=price&direction=desc&query=&category=ft&categoryId="
-    urlSortAscPrice = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=price&direction=asc&query=&category=ft&categoryId="
-    urlSortDescMarketCap = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=desc&query=&category=ft&categoryId="
-    urlSortAscMarketCap = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=asc&query=&category=ft&categoryId="
-    urlSortDescVolume = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=volume&direction=desc&query=&category=ft&categoryId="
-    urlsSortAscVolume = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=volume&direction=asc&query=&category=ft&categoryId="
+    urlSort = {
+        "Desc7D": "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=percentage_7d&direction=desc&query=&category=ft&categoryId=",
+        "Asc7D" : "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=percentage_7d&direction=asc&query=&category=ft&categoryId=",
+        "DescPrice" : "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=price&direction=desc&query=&category=ft&categoryId=",
+        "AscPrice" : "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=price&direction=asc&query=&category=ft&categoryId=",
+        "DescMarketCap" : "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=desc&query=&category=ft&categoryId=",
+        "AscMarketCap" : "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=asc&query=&category=ft&categoryId=",
+        "DescVolume" : "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=volume&direction=desc&query=&category=ft&categoryId=",
+        "AscVolume" : "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=volume&direction=asc&query=&category=ft&categoryId="
+    }
 
 
  RowFirstValue(selector){
@@ -66,6 +68,12 @@ clickOnColumnTitle(){
 
 }
 
+sortWait(){
+
+    cy.wait(1000)
+    
+}
+
 /**
  * Sorts and verifies the accuracy of a column containing prices.
  * It takes the prices text without percentage sign and maps them into an array 
@@ -73,7 +81,7 @@ clickOnColumnTitle(){
  * @param {string} selector - CSS selector of the column elements containing prices.
  * @param {string} sortOrd - Sorting order, either 'asc' for ascending or 'desc' for descending.
  *
- **/
+ */
 sortColumnPercent(selector: string,sortOrd: string){
  
     cy.get(selector).then(($price) => { 
@@ -107,7 +115,7 @@ sortColumnPercent(selector: string,sortOrd: string){
  * @param {object[]} sortedList - An array of objects representing assets with percentage_7d property.
  * @param {string} sortOrd - The sorting order ('asc' for ascending, 'desc' for descending).
  * 
- **/
+ */
 sortColumn(sortedList: [], sortOrd: string){
 
 
@@ -137,7 +145,7 @@ sortColumn(sortedList: [], sortOrd: string){
  * @param {string} selector - CSS selector of the column elements containing prices.
  * @param {string} sortOrd - Sorting order, either 'asc' for ascending or 'desc' for descending.
  *
- **/
+ */
 
 sortColumnPrice(selector: string, sortOrd: string){
  
@@ -197,7 +205,7 @@ sortColumnPrice(selector: string, sortOrd: string){
  * If first char is plus sign it must be green, if it's minus must be red
  * @param {string} selector - CSS selector of the container element containing text elements.
  *
- **/
+ */
 colorText(selector: string){
     let plus = new RegExp("^\\+.*")
     let minus = new RegExp("^\\-.*")

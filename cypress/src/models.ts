@@ -10,7 +10,7 @@ export enum urlContain {
 
 }
 
-export enum funcArg {
+export enum sortTypes {
      sortOrdDesc = "desc",
      sortOrdAsc = "asc"
 

@@ -1,8 +1,8 @@
-class criptoPricesPage {
+class cryptoPricesPage {
 
     pageUrl = "/"
     searchURL = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=desc&query=Happy&category=ft&categoryId="
-    interDataUrl = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=desc&query=&category=ft&categoryId="
+    tradedAssetsUrl = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=desc&query=&category=ft&categoryId="
     searchField = 'input[placeholder*="Search by Name or Symbol"]'
     searchbBtn = 'button[title="Search by Name or Symbol Button"]'
     cryptoTable = '.Table_tableContainer__Dm0uG'
@@ -84,7 +84,7 @@ class criptoPricesPage {
  * @param {string} regexpTxt - The regular expression pattern to match against the text content.
  * @param {string} option - Options for the regular expression (e.g., 'i' for case-insensitive).
  *
- **/
+ */
     checkResultsTextwithInputText(regexpTxt: string,option: string){
 
         cy.get(this.cryptoTable).find('tr').find(this.nameCells).each(($el) => {
@@ -98,4 +98,4 @@ class criptoPricesPage {
   
 } 
 
-module.exports = new criptoPricesPage();
+module.exports = new cryptoPricesPage();
