@@ -83,7 +83,7 @@ describe("Sorting columns",()=>{
 
     it("should verify accurate ascending sorting of price in the Market Cap column", ()=>{
      
-      cy.intercept("GET", rowPage.urlSort.AscMarketCap).as("sortedData")
+      cy.intercept(rowPage.urlSort.AscMarketCap).as("sortedData")
       cy.get(rowPage.marketCapField).click({ force: true })
       rowPage.sortWait()
     

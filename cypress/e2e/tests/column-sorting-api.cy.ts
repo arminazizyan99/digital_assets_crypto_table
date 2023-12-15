@@ -7,7 +7,7 @@ import {enValues} from "../../src/models"
 describe("Sorting from api columns",()=>{
 
    
-    it.skip("should verify from the api response descending sorting of percentages in the 7D column", ()=>{
+    it("should verify from the api response descending sorting of percentages in the 7D column", ()=>{
       cy.intercept(rowPage.urlSort.Desc7D).as("sortData");
 
       cy.get(rowPage.sevenDayField).click({ force: true });
@@ -27,7 +27,7 @@ describe("Sorting from api columns",()=>{
     })
 
 
-    it.skip("should verify from the api response ascending sorting of price in the Price column", ()=>{
+    it("should verify from the api response ascending sorting of price in the Price column", ()=>{
 
         cy.intercept(rowPage.urlSort.AscPrice).as("sortedData")
         cy.get(rowPage.priceField).click({ force: true }).click({ force: true })
@@ -66,7 +66,7 @@ describe("Sorting from api columns",()=>{
           })
       })
 
-      it.skip("should verify from the api response ascending sorting of price in the 24H Volume column", ()=>{
+      it("should verify from the api response ascending sorting of price in the 24H Volume column", ()=>{
         cy.intercept(rowPage.urlSort.AscVolume).as("sortedData")
         cy.get(rowPage.volumeField).click({ force: true }).click({ force: true })
   
@@ -84,9 +84,4 @@ describe("Sorting from api columns",()=>{
       
       })
   
-
-
-
-
-
 })
