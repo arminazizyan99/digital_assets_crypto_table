@@ -1,7 +1,8 @@
-class criptoPricesPage {
+class cryptoPricesPage {
 
     pageUrl = "/"
     searchURL = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=desc&query=Happy&category=ft&categoryId="
+    tradedAssetsUrl = "https://fda.forbes.com/v2/tradedAssets?limit=100&pageNum=1&sortBy=marketCap&direction=desc&query=&category=ft&categoryId="
     searchField = 'input[placeholder*="Search by Name or Symbol"]'
     searchbBtn = 'button[title="Search by Name or Symbol Button"]'
     cryptoTable = '.Table_tableContainer__Dm0uG'
@@ -14,13 +15,16 @@ class criptoPricesPage {
     column = '[role="row"]'
     columnHeader = '[role="columnheader"]'
     nameCells = '.Table_tableCellName__hYTfr'
+    loginForm = "#zephr-registration-form-M-0r0DzQ"
+    watchBtn = ".WatchlistBtn_addIcon__RrDIh"
+    formCloseBtn = '[aria-label="Close"]'
     
 
-    
+
     clickAndTypeSearch(param: string){
         cy.get(this.searchField).should('have.value', '');
         cy.get(this.searchField).click().type(param).should("have.value",param)   
-        cy.get(this.searchbBtn).should("be.visible").click()
+        cy.get(this.searchbBtn).should("be.visible").click({force : true})
     }
 
     
@@ -63,7 +67,24 @@ class criptoPricesPage {
         cy.get(this.searchField).clear()
     }
 
+    chechWatchListBtn(){
 
+        cy.get(this.watchBtn).first().each(($el)=>{
+        cy.wrap($el).click();
+        cy.get(this.loginForm).should("be.visible")
+        cy.get(this.formCloseBtn).click({ force: true })
+        cy.get(this.cryptoTable).should("be.visible")
+
+        })
+    }
+
+/**
+ * Checks if the text content of each element in a crypto table matches a regular expression pattern.
+ *
+ * @param {string} regexpTxt - The regular expression pattern to match against the text content.
+ * @param {string} option - Options for the regular expression (e.g., 'i' for case-insensitive).
+ *
+ */
     checkResultsTextwithInputText(regexpTxt: string,option: string){
 
         cy.get(this.cryptoTable).find('tr').find(this.nameCells).each(($el) => {
@@ -77,4 +98,4 @@ class criptoPricesPage {
   
 } 
 
-module.exports = new criptoPricesPage();
+module.exports = new cryptoPricesPage();

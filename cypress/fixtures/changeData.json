@@ -1,0 +1,40 @@
+{
+  "assets": [
+      {
+          "symbol": "bitcoin",
+          "displaySymbol": "btc",
+          "name": "Bitcoin",
+          "slug": "bitcoin-btc",
+          "logo": "https://assets.coingecko.com/coins/images/1/small/bitcoin.png?1547033579",
+          "temporaryDataDelay": false,
+          "price": 41850000,
+          "percentage": 0.011549635088216537,
+          "percentage_1h": 0.0036179277842572537,
+          "percentage_7d": 0.0050190917605244835,
+          "changeValue": -489,
+          "marketCap": 819663938775,
+          "volume": 30329767268,
+          "FullCount": null,
+          "rank": 1,
+          "Status": "active"
+      },
+      {
+          "symbol": "ethereum",
+          "displaySymbol": "eth",
+          "name": "Ethereum",
+          "slug": "ethereum-eth",
+          "logo": "https://assets.coingecko.com/coins/images/279/small/ethereum.png?1595348880",
+          "temporaryDataDelay": false,
+          "price": 0,
+          "percentage": -0.008612482761688743,
+          "percentage_1h": -0.0030641640423704143,
+          "percentage_7d": -0.010959997822516922,
+          "changeValue": -19.360000000000127,
+          "marketCap": 268023112506,
+          "volume": 17007204046,
+          "FullCount": null,
+          "rank": 2,
+          "Status": "active"
+      }
+    ]
+}

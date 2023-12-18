@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:run-mobile": "cypress run --headed --no-exit --env viewPort='iphone-se2',userAgent='mobile',changeViewPort=true --spec 'cypress/e2e/tests/pagination.cy.ts'",
+    "cy:run-desktop": "cypress run --headed --no-exit --env viewPort='macbook-11',userAgent='desktop',changeViewPort=true --spec 'cypress/e2e/tests/pagination.cy.ts'"
   },
   "keywords": [],
   "author": "",

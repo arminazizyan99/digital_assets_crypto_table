@@ -1,32 +1,35 @@
 import rowPage from "../../pages/rowPage"
-import {StatusCodes} from "../../src/models"
+import {assertChainers} from "../../src/models"
+import {attrCommand} from "../../src/models"
+import {fixtureFile} from "../../src/models"
+
 
 describe("Row fields",()=>{
 
-    it.skip("should test first row titles",()=>{
+    it("should test to make sure the first row titles are accurate",()=>{
       let i: number = 0
-      cy.fixture("rowField.json").then((rows) => {
+      cy.fixture(fixtureFile.rowField).then((rows) => {
          rows.rowField.forEach((fieldText:any) => {
-                cy.get(rowPage.arrayofFields[i]).should("have.text", fieldText)
+                cy.get(rowPage.arrayofFields[i]).should(assertChainers.haveText, fieldText)
                 i++
             })
       })
     })
 
-    it.skip("should test hovering message",()=>{
+    it("should check if the hover message displays correctly",()=>{
         let i: number = 2
-        cy.fixture("rowField.json").then((rows) => {
+        cy.fixture(fixtureFile.rowField).then((rows) => {
            rows.hoverField.forEach((fieldText:any) => {
-                  cy.get(rowPage.arrayofFields[i]).find(rowPage.hoverElement).invoke("attr","data").should("be.equal", fieldText)
+                  cy.get(rowPage.arrayofFields[i]).find(rowPage.hoverElement).invoke(attrCommand.attrFunction,attrCommand.dataAttribute).should(assertChainers.equal, fieldText)
                   i++
               })
         })
       })
 
 
-    it.skip("should test row fields texts with regexp",()=>{
+    it("should test elements text to match a regular expression",()=>{
 
-      cy.fixture("rowField.json").then((regexp)=> {
+      cy.fixture(fixtureFile.rowField).then((regexp)=> {
 
       for(let cell of rowPage.arrayofCellPercentage){
         rowPage.findRegexpPercent(cell, regexp.RegexpPercent)
@@ -41,7 +44,7 @@ describe("Row fields",()=>{
     })
 
 
-    it("should test row fileds text colors",()=>{
+    it("should test text color of a specific field in a row",()=>{
 
       rowPage.colorText(rowPage.rowCellHour)
       rowPage.colorText(rowPage.dayField)
