@@ -15,7 +15,7 @@ class cryptoPricesPage {
     column = '[role="row"]'
     columnHeader = '[role="columnheader"]'
     nameCells = '.Table_tableCellName__hYTfr'
-    openedForm = "#zephr-registration-form-M-0r0DzQ"
+    loginForm = "#zephr-registration-form-M-0r0DzQ"
     watchBtn = ".WatchlistBtn_addIcon__RrDIh"
     formCloseBtn = '[aria-label="Close"]'
     
@@ -71,7 +71,7 @@ class cryptoPricesPage {
 
         cy.get(this.watchBtn).first().each(($el)=>{
         cy.wrap($el).click();
-        cy.get(this.openedForm).should("be.visible")
+        cy.get(this.loginForm).should("be.visible")
         cy.get(this.formCloseBtn).click({ force: true })
         cy.get(this.cryptoTable).should("be.visible")
 

@@ -41,7 +41,7 @@ describe('Cryptocurrency price table', () => {
      cryptoPricesPage.findTableandPagination()
      cy.wait(1000)
 
-     cryptoPricesPage.checkResultsTextwithInputText(RegExp.regexpInputTxt,RegExp.regexpInputOpt)
+     cryptoPricesPage.checkResultsTextwithInputText(RegExp.regexpInputTxt, RegExp.regexpInputOpt)
 
   })
 

@@ -21,8 +21,11 @@ import homePage from "../pages/cryptoPricesPage"
 // require('./commands')
 
 beforeEach(()=>{
+
+  if (Cypress.env("changeViewPort") == true){
      const viewValue = Cypress.env("viewPort")
      cy.viewport(viewValue)
+    }
 
     cy.intercept(homePage.pageUrl).as('pageload')
     const app = window.top;
