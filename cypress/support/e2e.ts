@@ -15,12 +15,17 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
-import homePage from "../pages/criptoPricesPage"
+import homePage from "../pages/cryptoPricesPage"
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
 beforeEach(()=>{
+
+  if (Cypress.env("changeViewPort") == true){
+     const viewValue = Cypress.env("viewPort")
+     cy.viewport(viewValue)
+    }
 
     cy.intercept(homePage.pageUrl).as('pageload')
     const app = window.top;

@@ -7,7 +7,14 @@ export enum StatusCodes {
 
 export enum urlContain {
   criptoPricesPageUrl = "/crypto-prices/?sh="
-  }
+
+}
+
+export enum sortTypes {
+     sortOrdDesc = "desc",
+     sortOrdAsc = "asc"
+
+}
 
 export enum enValues {
 
@@ -19,7 +26,38 @@ export enum enValues {
     activeStatus = "active",
     emptyString = '',
     pageNum = 1,
-    mainPageNum = 5
+    mainPageNum = 5,
+    assetLenghth = 2
+
+}
+
+
+export enum assertChainers{
+   beVisible = "be.visible",
+   noValue = "not.have.value",
+   value = "have.value",
+   beDesabled = "be.disabled",
+   beEnabled = "be.enabled",
+   containText = "contain",
+   haveText = "have.text",
+   equal = "be.equal"
+
+}
+
+
+export enum fixtureFile {
+  rowField = "rowField.json",
+  changeNumdata = 'changeData.json'
+
+}
+
+
+export enum  attrCommand {
+
+   attrFunction = 'attr',
+   dataAttribute = 'data'
+
+   
 }
 
 export enum RegExp
